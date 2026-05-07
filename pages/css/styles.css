@@ -4,18 +4,57 @@
     box-sizing: border-box;
 }
 
+@keyframes slideZoomIn {
+
+    from {
+        opacity: 0;
+        transform: translateX(-100px) scale(1.2);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+@keyframes slideLeft {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideRight {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
 body {
     background-color: rgba(221, 203, 203, 0.5);
 }
+
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #0b2c48;
-    color: white;
+    background-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.85),
+        rgba(0, 0, 0, 0.70),
+            rgba(0, 0, 0, 0.50),
+            rgba(0, 0, 0, 0.4)          
+    ),
+        url(https://res.cloudinary.com/dxlqgb1rn/image/upload/q_auto/f_auto/v1777878106/IMG-20260504-WA0004_yeo5wf.jpg);
+    
+    color: rgb(245, 239, 239);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     padding: 10px 40px;
     height: 90px;
     font-size: 24px;
+    z-index: 1;
+    margin-bottom: 20px;
 }
 .nav-links a {
     color: white;
@@ -23,27 +62,97 @@ body {
     text-decoration: none;
     font-size: 14px;
 }
+.video-container {
+position: relative;
+display:flex;
+justify-content: center;
+align-items: center;
+object-fit: cover;
+width: 0;
+max-width: 700px;
+z-index: 1;
+}
 
+.video-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0px;
+background-image: linear-gradient(
+    rgba(3, 3, 3, 0.5), 
+    rgba(5, 5, 5, 0.5)
+),
+url(https://res.cloudinary.com/dxlqgb1rn/image/upload/q_auto/f_auto/v1777973605/WhatsApp-Image-2026-05-03-at-23.09.53_pjbuq8.jpg);
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center;
+position: relative;
+padding: 15px;
+border-radius: 10px;
+border: 2px solid #ccc;
+}
+.side-text {
+    width: 20%;
+    z-index: 2;
+    color: white;
+    font-size: 1.3rem;
 
-
+}
+.side-text.left {
+    text-align: left;
+}
+.side-text.right {
+    text-align: right;
+    
+}
+.animate-left {
+    opacity: 0;
+    transform: translateX(-80px);
+    animation: slideLeft 1s forwards;
+}
+.animate-right{
+   opacity: 0;
+    transform: translateX(80px);
+    animation: slideRight 3s forwards ease-out; 
+}
+.service-title {
+     animation: slideZoomIn 3s ease-out forwards;
+    animation-delay: 0.2s;
+    text-align: center;
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
 
 .service-card {
    display: grid;
    grid-template-columns: repeat(3, 1fr);
    gap: 20px;
    padding: 20px;
-margin:  0;
+margin:  20px;
+width: 100%;
 }
 
 .card {
+opacity: 0;
+transform: translateY(30px);
+animation: fadeUp 1s ease forwards;
 position: relative;
-display: block;
+display: flex;
 width: 100%;
 height: 300px;
 text-decoration: none;
 overflow: hidden;
 border-radius: 12px;
 padding: 5px 10px;
+background-size: cover;
+
+}
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .card img {
@@ -81,14 +190,18 @@ padding: 5px 10px;
 }
 
 .content {
+    animation: slideZoomIn 3s ease-out forwards;
+    animation-delay: 0.2s;
     padding: 40px;
-    background-color: rgb(245, 243, 239);
+    background-color: rgb(34, 33, 33);
     min-height: 100%;
+    color: white;
     text-align: center;
     font-size: 24px;
     margin: 0;
     position: relative;
     overflow: hidden;
+    width: 100%;
 }
 .content img {
     width: 100%;
@@ -105,8 +218,22 @@ padding: 5px 10px;
         transform: scale(1.1) translate(-10px, -10px);
     }
 }
+.home-page {
+     animation: slideZoomIn 3s ease-out forwards;
+    animation-delay: 0.2s;
+    padding: 40px;
+    background-color: rgb(34, 33, 33);
+    min-height: 100%;
+    color: rgb(230, 112, 112);
+    text-align: center;
+    font-size: 24px;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
 .about-bg-image {
-    background-image:  linear-gradient(rgba(185, 173, 173, 0.5), rgba(228, 215, 215, 0.5)),url('https://res.cloudinary.com/dxlqgb1rn/image/upload/q_auto/f_auto/v1776768457/img-electrical-installation-7_izckqa.png');
+    background-image:  linear-gradient(rgba(7, 7, 7, 0.5), rgba(2, 2, 2, 0.5)),url('https://res.cloudinary.com/dxlqgb1rn/image/upload/q_auto/f_auto/v1776768457/img-electrical-installation-7_izckqa.png');
     background-size: cover;
     position: relative;
     height: 100%;
@@ -114,7 +241,7 @@ padding: 5px 10px;
     overflow: hidden;
 }
 .about-bg-image img{
-background-image: linear-gradient(rgba(238, 226, 226, 0.5), rgba(223, 201, 201, 0.5)), url('https://res.cloudinary.com/dxlqgb1rn/image/upload/q_auto/f_auto/v1776768535/electrical_installation_2_apoejl.png');
+background-image: linear-gradient(rgba(8, 8, 8, 0.5), rgba(5, 5, 5, 0.5)), url('https://res.cloudinary.com/dxlqgb1rn/image/upload/q_auto/f_auto/v1776768535/electrical_installation_2_apoejl.png');
     background-size: cover;
     background-position: center;
     height: 100%;
@@ -123,14 +250,14 @@ background-image: linear-gradient(rgba(238, 226, 226, 0.5), rgba(223, 201, 201, 
 
 
 .cctv-bg-image{
-    background-image: linear-gradient(rgba(238, 226, 226, 0.5), rgba(223, 201, 201, 0.5)), url('https://res.cloudinary.com/dxlqgb1rn/image/upload/q_auto/f_auto/v1776768535/electrical_installation_2_apoejl.png');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://res.cloudinary.com/dxlqgb1rn/image/upload/q_auto/f_auto/v1777973551/WhatsApp-Image-2026-05-03-at-23.09.52_hcwczl.jpg');
     background-size: cover;
     background-position: center;
     height: 100%;
     margin-bottom: 0px;
 }
 .contact-bg-image {
-    background-image: linear-gradient(rgba(245, 236, 236, 0.5), rgba(223, 204, 204, 0.5)), url('https://res.cloudinary.com/dxlqgb1rn/image/upload/q_auto/f_auto/v1776769096/img_electric_fence_prwwem.png');
+    background-image: linear-gradient(rgba(2, 2, 2, 0.5), rgba(0, 0, 0, 0.5)), url('https://res.cloudinary.com/dxlqgb1rn/image/upload/q_auto/f_auto/v1776769096/img_electric_fence_prwwem.png');
     background-size: cover;
     background-position: center;
     height: 100%;
@@ -155,49 +282,168 @@ background-image: linear-gradient(rgba(238, 226, 226, 0.5), rgba(223, 201, 201, 
     transition: 0.3s;
 }
 .solar-bg-image {
-    background-image: linear-gradient(rgba(218, 208, 208, 0.5), rgba(221, 203, 203, 0.5)), url('https://res.cloudinary.com/dxlqgb1rn/image/upload/q_auto/f_auto/v1776842503/img_electrical_installation_9_b4j3zl.png');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://res.cloudinary.com/dxlqgb1rn/image/upload/q_auto/f_auto/v1776842503/img_electrical_installation_9_b4j3zl.png');
     background-size: cover;
     background-position: center;
     height: 100%;
     margin-bottom: 0px;
 }
+
 .fence-bg-image {
-    background-image: linear-gradient(rgba(219, 211, 211, 0.5), rgba(226, 195, 195, 0.5)), url('https://res.cloudinary.com/dxlqgb1rn/image/upload/q_auto/f_auto/v1776769159/img_electric_fence6_ta63zg.png');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://res.cloudinary.com/dxlqgb1rn/image/upload/q_auto/f_auto/v1776769159/img_electric_fence6_ta63zg.png');
     background-size: cover;
     background-position: center;
     height: 100%;
     margin-bottom: 0px;
 }
 .gate-bg-image {
-    background-image: linear-gradient(rgba(212, 206, 206, 0.5), rgba(224, 202, 202, 0.5)), url('https://res.cloudinary.com/dxlqgb1rn/image/upload/v1776841757/img_swing_gates_2_z9ly7d.png');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(3, 3, 3, 0.5)), url('https://res.cloudinary.com/dxlqgb1rn/image/upload/v1776841757/img_swing_gates_2_z9ly7d.png');
     background-size: cover;
     background-position: center;
     height: 100%;
     margin-bottom: 0px;
 }
 .security-bg-image {
-    background-image: linear-gradient(rgba(196, 192, 192, 0.5), rgba(224, 196, 196, 0.5)), url('https://res.cloudinary.com/dxlqgb1rn/image/upload/q_auto/f_auto/v1776769208/img_electrical_installation_5_d0wxsp.png');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://res.cloudinary.com/dxlqgb1rn/image/upload/q_auto/f_auto/v1776841806/img_smartlocks_4_x1fywu.png');
     background-size: cover;
     background-position: center;
     height: 100%;
     margin-bottom: 0px;
 }
 .home-bg-image {
-    background-image: linear-gradient(rgba(192, 187, 187, 0.5), rgba(223, 204, 204, 0.5)), url('https://res.cloudinary.com/dxlqgb1rn/image/upload/q_auto/f_auto/v1776769280/img_home_1_zkqj8p.png');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://res.cloudinary.com/dxlqgb1rn/image/upload/q_auto/f_auto/v1776769280/img_home_1_zkqj8p.png');
     background-size: cover;
     background-position: center;
-    height: 100%;
+   
     margin-bottom: 0px;
+     position: relative;
+    height: 80vh;
+    overflow: hidden;
+    display: flex;
+   /* align-items: center;
+    justify-content: center;
+    overflow: hidden;*/
+}
+
+.hero {
+    display: flex;
+    height:80vh;
+    background-image:  /*linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.85),
+        rgba(0, 0, 0, 0.70),
+            rgba(0, 0, 0, 0.50),
+            rgba(0, 0, 0, 0.4)          
+    ),*/ url('https://res.cloudinary.com/dxlqgb1rn/image/upload/q_auto/f_auto/v1777973627/WhatsApp-Image-2026-05-03-at-23.09.53-_1__yhg7tn.jpg');
+     background-size: cover;
+    background-position: center;
+}
+
+.hero-left {
+    position: relative;
+    border-radius: 20px;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+}
+.bg-video {
+    position: absolute;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(255,255,255,0.2);
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+.hero-right animate {
+   position: absolute; /* IMPORTANT */
+    top: 10%;
+    left: 10px;
+    transform: translate Y(-50%);
+    z-index: 3;
+    color: white;
+}
+.hero-right animate h1 {
+    animation: slideZoomIn 3s ease-out forwards;
+    animation-delay: 0.2s;
+    font-size: 2.5rem;
+      color: white;
+}
+.h1-right p {
+    font-size: 1.1rem;
+    animation: slideZoomIn 3s ease-out forwards;
+    animation-delay: 0.5s;
+  
+}
+
+@keyframes slideZoomInRight {
+    0% {
+        transform: translateX(100px) scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0) scale(1);
+        opacity: 1;
+    }
+}
+.hero-right {
+    animation: slideZoomInRight 3s ease-out forwards;
+    animation-delay: 0.2s;
+     position: relative;
+     border-radius: 20px;
+    width: 40%;
+    height: 50%;
+    transform: translateX(100px);
+   justify-content:center;
+  align-items: center;
+    height: 100%;
+    margin-bottom: 20px;
+    display: flex;
+flex-direction: column;
+justify-content: center;
+
+}   
+.h1-right {
+  color: white;  
+}
+
+.p-right { 
+font-size: 1.5rem;
+background-color: #0d3253;
+
+color: white;
+
+padding: 15px;
+margin: 15px;
+border-radius: 25px;
+border-color: rgb(58, 14, 14);
+
+}
+.p-2-right{
+  font-size: 1.5rem; 
+  padding: 15px;
+margin: 15px; 
+color: rgb(219, 211, 88);
 }
 .elec-bg-image {
-    background-image: linear-gradient(rgba(196, 188, 188, 0.5), rgba(223, 204, 204, 0.5)), url('https://res.cloudinary.com/dxlqgb1rn/image/upload/q_auto/f_auto/v1776841677/img_video_intercom_2_y80ttn.png');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://res.cloudinary.com/dxlqgb1rn/image/upload/q_auto/f_auto/v1776841677/img_video_intercom_2_y80ttn.png');
     background-size: cover;
     background-position: center;
     height: 100%;
     margin-bottom: 0px;
 }
 .services-bg-image {
-    background-image: linear-gradient(rgba(223, 215, 215, 0.5), rgba(218, 206, 206, 0.5)), url('https://res.cloudinary.com/dxlqgb1rn/image/upload/q_auto/f_auto/v1776841714/img_swing_gates_vcnbii.png');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://res.cloudinary.com/dxlqgb1rn/image/upload/q_auto/f_auto/v1776841714/img_swing_gates_vcnbii.png');
     background-size: cover;
     background-position: center;
     height: 100%;
@@ -217,6 +463,8 @@ background-image: linear-gradient(rgba(238, 226, 226, 0.5), rgba(223, 201, 201, 
 
 .left p {
     margin-bottom: 20px;
+     animation: slideZoomIn 3s ease-out forwards;
+    animation-delay: 0.2s;
 }
 
 .image-grid img {
@@ -232,10 +480,14 @@ background-image: linear-gradient(rgba(238, 226, 226, 0.5), rgba(223, 201, 201, 
 }
 
 .right li {
+     animation: slideZoomIn 3s ease-out forwards;
+    animation-delay: 0.2s;
     margin-bottom: 10px;
 }
 
 .highlight-box {
+     animation: slideZoomIn 3s ease-out forwards;
+    animation-delay: 0.2s;
     background: #0b2c48;
     color: white;
     padding: 20px;
@@ -277,6 +529,21 @@ background-image: linear-gradient(rgba(238, 226, 226, 0.5), rgba(223, 201, 201, 
     100% {
         transform: translateX(-50%);
     }
+}
+
+.about-text {
+  .about-text {
+    max-width: 800px;     /* controls line width */
+    margin: 0 auto;       /* centers the text block */
+    text-align: left;     /* keeps all lines aligned from same point */
+    line-height: 1.6;     /* improves readability */
+}
+
+.about-text p {
+    margin-bottom: 40px;  /* spacing between paragraphs */
+    color: #fff;          /* adjust based on your background */
+    font-size: 16px;
+}  
 }
 .footer {
     text-align: center;
